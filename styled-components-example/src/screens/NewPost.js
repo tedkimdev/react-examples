@@ -3,13 +3,17 @@ import styled from 'styled-components';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
+import Alert from '../components/Alert';
 import Button from '../components/Button';
 import Textarea from '../components/Textarea';
+
+import { SLIDE_IN } from '../style/animations';
 
 const Container = styled.div`
   margin: auto;
   padding: 1rem;
 
+  ${SLIDE_IN}
   border: 2px solid #eee;
 
   @media only screen and (min-width: 768px) {
@@ -68,10 +72,37 @@ const validationSchema = yup.object().shape({
 });
 
 export default class NewPost extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      status: ''
+    };
+  }
+
+  getStatusMessage(status) {
+    switch (status) {
+      case 'success':
+        return 'Thanks. We got your blog post!';
+      case 'error':
+        return 'Oh no. Something has gone wrong!';
+      default:
+        return null;
+    }
+  }
+
   render() {
+    const { status } = this.state;
+    const message = this.getStatusMessage(status);
+
     return (
       <Container>
         <Title>Add a new post</Title>
+        {message && (
+          <Alert success={status === 'success'} error={status === 'error'}>
+            {message}
+          </Alert>
+        )}
         <Formik
           onSubmit={(values, { setSubmitting, setErrors }) => {
             setSubmitting(false);

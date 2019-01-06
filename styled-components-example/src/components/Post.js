@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import marked from 'marked';
 
+import { FADE_IN } from '../style/animations';
+
 const Container = styled.div`
   margin: 0.25rem;
 
+  ${FADE_IN}
   border: 1px solid #eee;
 `;
 
