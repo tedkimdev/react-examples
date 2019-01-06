@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaPlus as PlusIcon } from 'react-icons/fa/';
 
+// TODO: use withComponent to inherit Button component styles
 const NewPostLink = styled(Link)`
   position: fixed;
   bottom: 12px;
