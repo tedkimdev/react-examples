@@ -104,9 +104,29 @@ export default class NewPost extends Component {
           </Alert>
         )}
         <Formik
-          onSubmit={(values, { setSubmitting, setErrors }) => {
+          onReset={() => {
+            this.setState({
+              status: ''
+            });
+          }}
+          onSubmit={(values, { resetForm, setSubmitting, setErrors }) => {
             setSubmitting(false);
             // note: this would normally make an API call
+            this.setState(
+              {
+                status: 'success'
+              },
+              () => {
+                resetForm();
+                setSubmitting(false);
+
+                setTimeout(() => {
+                  this.setState({
+                    status: ''
+                  });
+                }, 5000);
+              }
+            );
           }}
           initialValues={{ content: '', title: '' }}
           validationSchema={validationSchema}
@@ -120,7 +140,7 @@ export default class NewPost extends Component {
             values
           }) => (
             <Form onSubmit={handleSubmit}>
-              <Label for="title">
+              <Label htmlFor="title">
                 Title
                 <Input
                   id="title"
@@ -131,7 +151,7 @@ export default class NewPost extends Component {
                   value={values.title}
                 />
               </Label>
-              <Label for="content">
+              <Label htmlFor="content">
                 Content
                 <StyledTextarea
                   id="content"

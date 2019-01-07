@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './screens/App';
 
+import 'bootstrap/dist/css/bootstrap.css';
 import 'normalize.css';
 
 ReactDOM.render(
