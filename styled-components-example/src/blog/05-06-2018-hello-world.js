@@ -5,7 +5,7 @@ The first post in this blog is written by yours truly. I hope you enjoy reading 
 
 If you are reading this, I am sincerely impressed with your patience, and I hope that you find it worth your time and are enjoying the course.
 
-## CSS in JS
+# CSS in JS
 
 This is intended to be a relatively stream-of-conciousness exposition of what I love so much about CSS in JS.
 
@@ -17,7 +17,11 @@ Introducing... styled-components!
 
 ## styled-components
 
-styled-components is the first CSS in JS library where it really clicked and where I felt writing CSS as CSS in JS to be natural, intuitive, and clean. The authoring experience is top-notch and I really do believe it to still be one of the best CSS in JS libraries in the React ecosystem.
+![Logo](https://cdn-images-1.medium.com/max/1600/1*N0XV3gco7Ed4brMoxwdjVg.png)
+
+[styled-components][styled-components] is the first CSS in JS library where it really clicked and where I felt writing CSS as CSS in JS to be natural, intuitive, and clean. The authoring experience is top-notch and I really do believe it to still be one of the best CSS in JS libraries in the React ecosystem.
+
+[styled-components]: https://styled-components.com
 `;
 
 export const meta = {

@@ -13,7 +13,7 @@ const Container = styled.div`
   margin: auto;
   padding: 1rem;
 
-  ${SLIDE_IN}
+  ${SLIDE_IN};
   border: 2px solid #eee;
 
   @media only screen and (min-width: 768px) {
@@ -39,7 +39,7 @@ const Label = styled.label`
   font-size: 12px;
   text-transform: uppercase;
 
-  color: #333;
+  color: ${props => props.theme.base.color};
   margin-bottom: 0.5rem;
 
   :last-child {
@@ -94,7 +94,6 @@ export default class NewPost extends Component {
   render() {
     const { status } = this.state;
     const message = this.getStatusMessage(status);
-
     return (
       <Container>
         <Title>Add a new post</Title>
@@ -110,7 +109,6 @@ export default class NewPost extends Component {
             });
           }}
           onSubmit={(values, { resetForm, setSubmitting, setErrors }) => {
-            setSubmitting(false);
             // note: this would normally make an API call
             this.setState(
               {
@@ -140,7 +138,7 @@ export default class NewPost extends Component {
             values
           }) => (
             <Form onSubmit={handleSubmit}>
-              <Label htmlFor="title">
+              <Label for="title">
                 Title
                 <Input
                   id="title"
@@ -149,9 +147,10 @@ export default class NewPost extends Component {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.title}
+                  required
                 />
               </Label>
-              <Label htmlFor="content">
+              <Label for="content">
                 Content
                 <StyledTextarea
                   id="content"
@@ -160,6 +159,7 @@ export default class NewPost extends Component {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.content}
+                  required
                 />
               </Label>
               <ButtonContainer>

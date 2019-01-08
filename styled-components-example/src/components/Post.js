@@ -8,8 +8,7 @@ import { FADE_IN } from '../style/animations';
 const Container = styled.div`
   margin: 0.25rem;
 
-  ${FADE_IN}
-  border: 1px solid #eee;
+  ${FADE_IN} border: 1px solid #eee;
 `;
 
 const ImageContainer = styled.div`
@@ -40,12 +39,15 @@ const Title = styled.h1`
 `;
 
 const Content = styled.div`
-  flex: 1;
   padding: 1rem;
 `;
 
 const StyledLink = styled(Link)`
   color: white;
+
+  :hover {
+    color: white;
+  }
 `;
 
 export default function Post({ markdown = '', meta = {}, preview }) {
